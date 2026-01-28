@@ -31,3 +31,14 @@ SELECT
     BillingCity AS ciudad_facturacion
 FROM Invoice 
  
+
+-- 5. Filtrar datos
+
+SELECT * FROM Invoice 
+WHERE BillingCountry='Canada'
+
+SELECT * FROM Invoice 
+WHERE BillingCountry!='Canada'
+
+
+SELECT BillingCountry,COUNT(*) FROM Invoice GROUP BY BillingCountry
