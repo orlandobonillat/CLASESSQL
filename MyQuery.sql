@@ -42,3 +42,42 @@ WHERE BillingCountry!='Canada'
 
 
 SELECT BillingCountry,COUNT(*) FROM Invoice GROUP BY BillingCountry
+
+
+-- Filtro texto
+-- Wildcard(%) : Busqueda de texto
+-- Usar LIKE antes del wilcard
+SELECT * FROM Track;
+
+SELECT * FROM Track
+WHERE Composer='Tony';
+
+-- a. Inicio del texto
+SELECT * FROM Track
+WHERE Composer LIKE 'Tony%'; -- texto a la derecha puede ser cualquier cosa
+
+-- b. Final del texto
+SELECT * FROM Track
+WHERE Composer LIKE '%Tony'; -- texto a la izquierda puede ser cualquier cosa
+
+-- c. En el texto
+SELECT * FROM Track
+WHERE Composer LIKE '%Tony%'; -- texto a la izquierda puede ser cualquier cosa
+
+
+-- Las 2 condiciones se deben de cumplir 
+SELECT   *
+FROM
+    Track
+WHERE
+    Composer LIKE '%John%'
+        AND Composer LIKE '%Paul%';
+
+
+-- Basta que 1 condición se cumpla
+SELECT   *
+FROM
+    Track
+WHERE
+    Composer LIKE '%John%'
+        OR Composer LIKE '%Paul%';
